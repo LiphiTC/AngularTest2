@@ -40,10 +40,14 @@ export class LoginComponent {
     return this.registerForm.get(controlName)?.hasError(errorName)
   }
   public login = (registerFormValue : any) => {
-    this.isLoginError = false;
+    this.isLoginError = true;
     const formValues = { ...registerFormValue };
-
-    if(!this.authService.loginUser( formValues.password, formValues.email)) {
+    const user: UserForAuthenticationDto = {
+      email: formValues.email,
+      password: formValues.password
+    };
+    console.log(user);
+    if(!this.authService.loginUser(user)) {
       this.isLoginError = true;
     }
     else {

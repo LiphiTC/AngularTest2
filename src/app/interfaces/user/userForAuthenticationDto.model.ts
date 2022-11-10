@@ -1,5 +1,4 @@
-export class UserForAuthenticationDto {
-
-
-    constructor(public email: string, public password: string ) {}
+export interface UserForAuthenticationDto {
+    email: string;
+    password: string;
 }

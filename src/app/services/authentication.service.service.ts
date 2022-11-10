@@ -1,4 +1,4 @@
-import { UserForRegistrationDto } from 'src/app/interfaces/user/userForRegistrationDto.model'; 
+import { UserForRegistrationDto } from 'src/app/interfaces/user/userForRegistrationDto.model';
 import { RegistrationResponseDto } from 'src/app/interfaces/response/registrationResponseDto.model';
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
@@ -14,28 +14,28 @@ export class AuthenticationService {
   constructor() { }
 
   public registerUser = (body: UserForRegistrationDto) => {
-    
+
     localStorage.setItem("registeredUser", JSON.stringify(body));
-    
+
     return true;
   }
 
-  public loginUser = (password : string, email : string) => {
+  public loginUser = (body: UserForAuthenticationDto) => {
     var user = JSON.parse(localStorage.getItem("registeredUser")!) as any;
-    console.log(user.password);
-    console.log(password);
-    console.log();
-    console.log();
-    if(user.password == password && user.email == email)
-    {
-      localStorage.setItem("loggedIn", JSON.stringify(email));
-
+    if (user.password == body.password && user.email == body.email) {
+      localStorage.setItem("loggedIn", JSON.stringify(body));
       return true;
-
     }
     return false;
-
-
-
   }
+
+  public isLoggedIn = () => {
+    var user = localStorage.getItem("loggedIn");
+    if (user == null)
+      return false;
+    return true;
+  }
+
+    
+
 }
