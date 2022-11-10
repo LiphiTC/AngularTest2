@@ -4,4 +4,6 @@ export interface UserForRegistrationDto {
     email: string;
     password: string;
     confirmPassword: string;
+    birthDate: string;
+    middleName: string;
 }

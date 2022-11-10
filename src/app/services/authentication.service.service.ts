@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { UserForAuthenticationDto } from '../interfaces/user/userForAuthenticationDto.model';
 import { AuthResponseDto } from '../interfaces/response/authResponseDto.model';
+import { bootstrapApplication } from '@angular/platform-browser';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +13,14 @@ export class AuthenticationService {
 
   constructor() { }
 
-  public registerUser = (route: string, body: UserForRegistrationDto) => {
-    //return this.http.post<RegistrationResponseDto> (this.baseUrl + route, body);
+  public registerUser = (body: UserForRegistrationDto) => {
+    
+    localStorage.setItem("registeredUser", JSON.stringify(body));
+    
+    return true;
   }
 
   public loginUser = (route: string, body: UserForAuthenticationDto) => {
-   // return this.http.post<AuthResponseDto>(this.baseUrl + route, body);
+     
   }
 }
