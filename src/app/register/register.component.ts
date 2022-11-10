@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserForRegistrationDto } from 'src/app/interfaces/user/userForRegistrationDto.model';
 import { AuthenticationService } from 'src/app/services/authentication.service.service';
 import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 //import { PasswordConfirmationValidatorService } from 'src/app/shared/custom-validators/password-confirmation-validator.service';
 
 
@@ -15,7 +16,7 @@ export class RegisterUserComponent {
 
   registerForm: FormGroup;
 
-  constructor(private authService: AuthenticationService) {
+  constructor(private authService: AuthenticationService, private router: Router) {
     this.registerForm = new FormGroup({
       firstName: new FormControl('', [Validators.required, Validators.maxLength(20)]),
       lastName: new FormControl('', [Validators.required, Validators.maxLength(20)]),
@@ -57,7 +58,7 @@ export class RegisterUserComponent {
     };
 
     this.authService.registerUser(user);
-     
+    this.router.navigate(['/login']);
   }
 
 

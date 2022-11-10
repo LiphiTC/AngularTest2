@@ -9,13 +9,18 @@ import { RegisterUserComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RouterModule } from '@angular/router';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostsComponent,
     LoginComponent,
-    RegisterUserComponent
+    RegisterUserComponent,
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

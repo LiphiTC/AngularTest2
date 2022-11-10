@@ -1,4 +1,4 @@
-export interface UserForAuthenticationDto {
-    email: string;
-    password: string;
+export default class UserForAuthenticationDto {
+    public email: string;
+    public password: string;
 }

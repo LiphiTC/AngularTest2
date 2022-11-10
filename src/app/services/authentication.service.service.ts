@@ -20,7 +20,25 @@ export class AuthenticationService {
     return true;
   }
 
-  public loginUser = (route: string, body: UserForAuthenticationDto) => {
-     
+  public loginUser = (body: UserForAuthenticationDto) => {
+    var user = JSON.parse(localStorage.getItem("registeredUser")!) as any;
+    console.log(user.password);
+    console.log(body.password);
+
+    console.log(body.password);
+
+    console.log(body.email);
+
+    if(user.password == body.password && user.email == body.email)
+    {
+      localStorage.setItem("loggedIn", JSON.stringify(body));
+
+      return true;
+
+    }
+    return false;
+
+
+
   }
 }

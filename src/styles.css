@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+body {
+    background: rgb(203, 153, 126);
+    background: linear-gradient(187deg, rgba(203, 153, 126, 1) 0%, rgba(221, 190, 169, 1) 47%, rgba(255, 232, 214, 1) 100%) no-repeat;
+    height: max-content;
+    min-height: 100vh;
+}
