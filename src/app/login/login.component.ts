@@ -42,12 +42,8 @@ export class LoginComponent {
   public login = (registerFormValue : any) => {
     this.isLoginError = false;
     const formValues = { ...registerFormValue };
-    const user: UserForAuthenticationDto = {
-      email: formValues.email,
-      password: formValues.password
-    };
 
-    if(!this.authService.loginUser(user)) {
+    if(!this.authService.loginUser( formValues.password, formValues.email)) {
       this.isLoginError = true;
     }
     else {
